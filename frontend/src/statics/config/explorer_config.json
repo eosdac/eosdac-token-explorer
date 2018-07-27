@@ -1,0 +1,14 @@
+{
+	"settings": {
+
+		"base_api_url": "http://145.239.255.195/api/explorer_base_api.php",
+
+		"table_api_url":"http://145.239.255.195/api/explorer_table_api.php",
+
+		"httpendpoint_node" : "http://ex1.eosdac.io:8080",
+		
+		"chainid": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
+
+		"cmc_token_ticker_url" : "https://api.coinmarketcap.com/v2/ticker/2644/"
+	}
+}
