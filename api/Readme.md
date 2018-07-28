@@ -1,5 +1,5 @@
 <h2>API endpoints for the explorer</h2>
-The explorer uses the same api endpoint as jquery datatables for loading it's table data. Although the explorer doesn't use jquery datatables (it uses Quasar datatable component) we decided to make the table api calls compatible with jqueries version because this is far most the widest adopted datatable and numerous api endpoints are available in many different languages.
+<p>The explorer uses the same api endpoint as jquery datatables for loading it's table data. Although the explorer doesn't use jquery datatables (it uses Quasar datatable component) we decided to make the table api calls compatible with jqueries version because this is far most the widest adopted datatable and numerous api endpoints are available in many different languages.</p>
 
 **1. Install depedencies with composer**
 ```
