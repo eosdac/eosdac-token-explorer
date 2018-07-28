@@ -1,6 +1,6 @@
 <h2>Script for constructing token balances based on transfer actions</h2>
 
-this script only works on nodes that have the history plugin enabled with the correct filter.
+This script only works on nodes that have the history plugin enabled with the correct filter. It will populate the database with all transfer actions and construct the balances (live) with the help of a mysql trigger.
 
 **1. Install modules**
 ```
