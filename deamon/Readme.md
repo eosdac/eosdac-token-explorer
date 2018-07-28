@@ -17,6 +17,7 @@ see sql.txt
 ```
 node action_deamon_promise.js
 ```
+![image](https://user-images.githubusercontent.com/5130772/43351339-c47a52d2-9210-11e8-81bb-3159cc0d1515.png)
 
 **4. Use pm2 (process manager) to deamonize the script**
 ```
