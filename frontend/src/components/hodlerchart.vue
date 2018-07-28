@@ -12,7 +12,8 @@
     />
     <div class="row justify-center">
     <q-slider
-      style="width:80%"
+      style="width:80%;margin-top:-80px"
+      color="brand"
       label-always
       snap
       :label-value="`${slidervalue}`"
@@ -36,17 +37,18 @@ export default {
 
   data() {
     return {
-      slidervalue:30, //initial value
-      slidermax:100,
+      slidervalue:100, //initial value
+      slidermax:500,
       unfiltereddata:[],
       chartData: [],
       chartOptions: {
-        title: `Top 30 Holders`,
+        title: `Top 100 Holders`,
         width:'900',
         height:'500',
         titleTextStyle: {
             color: 'grey',
         },
+        sliceVisibilityThreshold: 0.0001,
         is3D:true,
         pieHole: 0.4,
 

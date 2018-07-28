@@ -91,7 +91,7 @@
     ref="table"
     color="brand"
     dark
-    dense
+    
     :rows-per-page-options=[3,5,7,10,20,50,100]
     :title="title"
     :data="serverData"

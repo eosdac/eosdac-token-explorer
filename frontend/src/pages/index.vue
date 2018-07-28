@@ -105,7 +105,7 @@ export default {
         tokenactivity
     },
   data() {
-
+    // new Intl.NumberFormat().format(circulatingcount)
     return {
       eosdacprice: 0,
       change24: 0,
