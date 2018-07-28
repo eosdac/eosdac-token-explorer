@@ -1,4 +1,4 @@
-#Script for constructing token balances based on transfer actions
+<h2>Script for constructing token balances based on transfer actions</h2>
 
 this script only works on nodes that have the history plugin enabled with the correct filter.
 
@@ -23,6 +23,7 @@ node action_deamon_promise.js
 ```
 npm install pm2 -g
 pm2 start action_deamon.js
+
 //verify that the deamon is running
 pm2 list
 ```
