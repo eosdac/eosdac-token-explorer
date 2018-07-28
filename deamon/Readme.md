@@ -14,6 +14,7 @@ see sql.txt
 ```
 
 **3. Edit the action_deamon.js file with your mysql and eos node.
+![image](https://user-images.githubusercontent.com/5130772/43356181-392b693a-926c-11e8-9304-c9eb0542df43.png)
 
 **4. Run script**
 ```
