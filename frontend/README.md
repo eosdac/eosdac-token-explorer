@@ -1,4 +1,5 @@
-Token explorer
+<h2>Token explorer frontend</h2>
+The frontend is made with vue/quasar.
 
 **1. Install Vue-Cli**
 ```
