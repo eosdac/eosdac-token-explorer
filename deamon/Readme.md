@@ -13,13 +13,15 @@ npm install
 see sql.txt
 ```
 
-**3. Run script**
+**3. Edit the action_deamon.js file with your mysql and eos node.
+
+**4. Run script**
 ```
 node action_deamon_promise.js
 ```
 ![image](https://user-images.githubusercontent.com/5130772/43351339-c47a52d2-9210-11e8-81bb-3159cc0d1515.png)
 
-**4. Use pm2 (process manager) to deamonize the script**
+**5. Use pm2 (process manager) to deamonize the script**
 ```
 npm install pm2 -g
 pm2 start action_deamon.js
