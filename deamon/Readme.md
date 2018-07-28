@@ -22,5 +22,7 @@ node action_deamon_promise.js
 ```
 npm install pm2 -g
 pm2 start action_deamon.js
+//verify that the deamon is running
+pm2 list
 ```
-
+![image](https://user-images.githubusercontent.com/5130772/43351300-53586832-9210-11e8-8905-835646e6e94a.png)
