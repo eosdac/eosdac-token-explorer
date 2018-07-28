@@ -18,6 +18,7 @@ npm install -g quasar-cli
 **3. Clone Repo**
 
 **4. Install modules**
+
 ```
 # in project directory
 yarn install
@@ -43,7 +44,7 @@ quasar build
 ```
 **3. Copy content of dist/spa-mat folder to your webserver**
 
-**4. Add .htaccess file to the root folder **
+**4. Add .htaccess file to the root folder**
 
 because this app is a single page application we need to tell the webserver to redirect urls pointing to a non existing file to the index.html file.
 ```
