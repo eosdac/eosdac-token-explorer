@@ -22,6 +22,18 @@ class Datatables {
     {
         $this->db = $db->connect();
         $this->input = isset($_POST["draw"]) ? $_POST : $_GET;
+        
+        if(!is_numeric($this->input('draw')) ){
+            $this->input['draw'] = 1;
+            return false;
+        }
+
+        if($this->input('length') > 100){
+            
+            $this->input['length'] = 100;
+        }
+
+
     }
 
     public function query($query)
