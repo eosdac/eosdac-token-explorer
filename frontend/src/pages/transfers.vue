@@ -4,7 +4,6 @@
     style="background:#1E2128"
     color="brand"
     dark
-    
     :rows-per-page-options=[3,5,7,10,20,50,100]
     :title="title"
     :data="serverData"
@@ -61,13 +60,13 @@ export default {
       serverData: [],
       title:'Transfers',
       columns: [
-        { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'center'},
-        { name: '_from', label: 'From', field: '_from', align:'center', searchable:true},
-        { name: '_to', label: 'To', field: '_to', align:'center', searchable:true},
-        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'center' },
-        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'center' },
-        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'center', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
-        { name: 'txid', label: 'Txid', field: 'txid', align:'center', searchable:true}
+        { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'left'},
+        { name: '_from', label: 'From', field: '_from', align:'right', searchable:true},
+        { name: '_to', label: 'To', field: '_to', align:'right', searchable:true},
+        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'right' },
+        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'right' },
+        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
+        { name: 'txid', label: 'Txid', field: 'txid', align:'left', searchable:true}
       ]
     }
   },

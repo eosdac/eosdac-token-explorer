@@ -4,10 +4,10 @@
 <div class="overflow-hidden">
     <div class="row q-mt-sm gutter-sm" style="margin-bottom:20px;">
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="max-height:60px;">
+        <div class="bg-primary rounded shadow-5" style="max-height:60px;">
           <div class="row">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-dac-membership"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-03"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{eosdacbalance}}</p>
@@ -23,11 +23,11 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3 ">
               <!-- <img src="~assets/Eosio_logo.svg" style="width:40px; margin-top:7px;margin-left:10px"> -->
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-eos"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-04"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{eosbalance}}</p>
@@ -42,10 +42,10 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-voting"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-06"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">0</p>
@@ -61,10 +61,10 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-member"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2"  style="font-size:45px;" name="icon-item-8"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">No</p>
@@ -86,7 +86,7 @@
     <!-- <q-tab slot="title"     label="VOTES" /> -->
   </q-tabs>
 
-  <div class="bg-mydark">
+  <div class="bg-mydark shadow-5" >
   <q-table
     ref="table"
     color="brand"
@@ -200,15 +200,15 @@ export default {
       serverData: [],
       title: this.$route.params.accountname,
       columns: [
-        { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'center'},
-        { name: '_from', label: 'From', field: '_from', align:'center', searchable:true },
+        { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'left'},
+        { name: '_from', label: 'From', field: '_from', align:'right', searchable:true },
         { name: 'direction', label: '', field: '', align:'center', ignoreapi:true },
-        { name: '_to', label: 'To', field: '_to', align:'center', searchable:true },
-        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'center' },
-        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'center' },
-        { name: '_memo', label: 'Memo', field: '_memo', align:'center' },
-        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'center', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
-        { name: 'txid', label: 'Txid', field: 'txid', align:'center'}
+        { name: '_to', label: 'To', field: '_to', align:'right', searchable:true },
+        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'right' },
+        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'right' },
+        { name: '_memo', label: 'Memo', field: '_memo', align:'right' },
+        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
+        { name: 'txid', label: 'Txid', field: 'txid', align:'left'}
       ]
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <div id="chartlistener" style="position:relative" :urlprop.sync="urlprop">
+  <div id="chartlistener" style="position:relative" :urlprop.sync="urlprop" class="shadow-5">
     <div class="bg-mypurple row " style="color:white;height:60px;line-height:60px;padding-left:35px" >
       EOSDAC TOKEN ACTIVITY
     </div>
@@ -14,20 +14,20 @@
       ref="gChart"
     />
 <q-fab
-  color="primary"
+  color="brand"
   icon="keyboard_arrow_down"
   direction="down"
   class="absolute"
   style="right: 18px; top: 78px"
 >
   <q-fab-action
-    color="positive"
+    color="brand"
     @click="changeChartType('LineChart')"
     icon="show_chart"
   />
 
   <q-fab-action
-    color="positive"
+    color="brand"
     @click="changeChartType('ColumnChart')"
     icon="bar_chart"
   />

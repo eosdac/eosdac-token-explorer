@@ -1,13 +1,13 @@
 <template>
 <div>
   <q-layout view="hhr LpR lff">
-    <q-layout-header reveal>
+    <q-layout-header reveal v-if="!$q.platform.within.iframe">
       <q-toolbar color="primary" >
         <div class="absolute-center row justify-between items-center pagewidth">
 
           <router-link :to="{path: '/transfers/'}" class="text-mywhite">
             <span>
-            <img id="logo" src="~assets/icon-eosdac-explorer-235x48.svg" style="height:40px">
+            <img id="logo" src="~assets/icon-signet-eosdac-BETA-explorer-225x48.svg" style="height:48px">
           </span>
           </router-link>
 
@@ -28,11 +28,10 @@
       </q-page>
     </q-page-container>
 
-    <q-layout-footer reveal>
+    <q-layout-footer reveal v-if="!$q.platform.within.iframe">
       <q-toolbar color="primary">
         <div class="absolute-center pagewidth">
-          <q-icon class="q-ma-sm text-mywhite" style="font-size:10em; font-weight:normal!important" name="icon-logo-footer-explorer"></q-icon>
-          <!-- <img src="~assets/icon-footer-eosdac-explorer-140x40.svg" style="height:50px"> -->
+          <img id="logo" src="~assets/icon-footer-eosdac-explorer-165x48.svg" style="height:40px">
         </div>
       </q-toolbar>
     </q-layout-footer>

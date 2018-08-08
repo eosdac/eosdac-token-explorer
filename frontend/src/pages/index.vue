@@ -4,10 +4,10 @@
   <div class="overflow-hidden">
     <div class="row q-mt-sm gutter-sm" style="margin-bottom:20px;">
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="max-height:60px;">
+        <div class="bg-primary rounded shadow-5" style="max-height:60px;">
           <div class="row">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-dac-membership"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-03"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{eosdacprice}}</p>
@@ -25,10 +25,10 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-circulating-1"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-9"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{circulatingcount}}</p>
@@ -43,10 +43,10 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-member"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-8"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{membercount}}</p>
@@ -62,10 +62,10 @@
       </div>
 
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="bg-primary rounded" style="height:60px;">
+        <div class="bg-primary rounded shadow-5" style="height:60px;">
           <div class="row fit">
             <div class="col-xs-3">
-              <q-icon class="q-ma-sm" style="font-size:45px;" name="icon-hodler"></q-icon>
+              <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-05"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{hodlercount}}</p>
@@ -88,7 +88,7 @@
     <!--   <q-tab slot="title" name="tab-3" label="MEMBERS"/>
     <q-tab slot="title" name="tab-4" label="VOTES" /> -->
 
-    <div style="min-height:500px"> <!-- <div style="background:#1E2128;">  -->
+    <div style="min-height:500px" class="shadow-5"> <!-- <div style="background:#1E2128;">  -->
       <router-view  />
     </div>
     <!-- </q-tab-pane> -->
