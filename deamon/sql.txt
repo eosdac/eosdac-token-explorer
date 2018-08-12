@@ -3,7 +3,7 @@ CREATE TABLE `transfers` (
  `actiontype` text CHARACTER SET latin1 NOT NULL,
  `_from` varchar(13) CHARACTER SET latin1 DEFAULT NULL,
  `_to` varchar(32) CHARACTER SET latin1 DEFAULT NULL,
- `_quantity` decimal(13,0) DEFAULT NULL,
+ `_quantity` decimal(13,4) DEFAULT NULL,
  `_symbol` varchar(7) CHARACTER SET latin1 DEFAULT NULL,
  `_memo` text,
  `txid` varchar(80) CHARACTER SET latin1 DEFAULT NULL,
