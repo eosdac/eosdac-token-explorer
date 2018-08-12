@@ -2,11 +2,11 @@
 <q-page >
 
   <div v-if="!isvalidtxid && !isloading" style="border:1px solid #491289;background-color:#1E2128;margin-top:40px;text-align:center;padding:20px" class="rounded">
-    <div style="margin-bottom:20px">This transaction id is not related to eosDAC</div>
+    <div style="margin-bottom:20px">{{$t('error_trx_not_related')}}</div>
     <q-btn
       color="brand"
       @click="$router.push('/transfers')"
-      label="Go Home"
+      :label="$t('go_home')"
     />
   </div>
 
@@ -23,11 +23,11 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{type.toUpperCase()}}</p>
-              <span class="q-subheading">Type</span>
+              <span class="q-subheading">{{$t('type')}}</span>
             </div>
             <div class="col-xs-5 relative-position  ">
 <!--               <div style="font-size:14px;margin-top:12px; padding-right:10px" class="text-right" :class="{'text-negative q-mb-none q-mt-lg': change24 < 0, 'text-positive q-mb-none q-mt-lg': change24 > 0}">{{change24}}% (24h)</div> -->
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Transaction</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('transaction')}}</p>
             </div>
 
           </div>
@@ -43,10 +43,10 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{trxdata.from}}</p>
-              <span class="q-subheading">From</span>
+              <span class="q-subheading">{{$t('from')}}</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Account</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('account')}}</p>
             </div>
 
           </div>
@@ -61,11 +61,11 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{trxdata.to}}</p>
-              <span class="q-subheading">To</span>
+              <span class="q-subheading">{{$t('to')}}</span>
             </div>
             <div class="col-xs-5 relative-position">
 
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Account</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('account')}}</p>
             </div>
 
           </div>
@@ -83,7 +83,7 @@
               <span class="q-subheading">EOSDAC</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Amount</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('amount')}}</p>
             </div>
           </div>
         </div>
@@ -94,8 +94,8 @@
   <!-- end row -->
 
   <q-tabs color="brand" >
-    <q-tab default  slot="title"  name="tab-1" label="DETAILS" />
-    <q-tab  slot="title"  name="tab-2" label="RAW TRANSACTION" />
+    <q-tab default  slot="title"  name="tab-1" :label="$t('DETAILS')" />
+    <q-tab  slot="title"  name="tab-2" :label="$t('RAW_TRANSACTION')" />
 
     <q-tab-pane name="tab-1" class="shadow-5">
 
@@ -126,10 +126,10 @@
 
           </div>
         </div>
-
+  
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <div class="rounded" style="height:100%; background: #2F333C;padding:10px">
-            <p class="q-headline text-weight-light text-white big" style="line-height:24px;">MEMO / INFO:</p>
+          <div class="rounded" style="height:100%; background: #2F333C;padding:10px;overflow-wrap: break-word;word-wrap: break-word;">
+            <p class="q-headline text-weight-light text-white big" style="line-height:24px;">{{$t('MEMO_INFO')}}:</p>
             <p>{{memo_info}}</p>
           </div>
         </div>

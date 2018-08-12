@@ -15,7 +15,7 @@
             </div>
             <div class="col-xs-5 relative-position  ">
 <!--               <div style="font-size:14px;margin-top:12px; padding-right:10px" class="text-right" :class="{'text-negative q-mb-none q-mt-lg': change24 < 0, 'text-positive q-mb-none q-mt-lg': change24 > 0}">{{change24}}% (24h)</div> -->
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Balance</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{ $t('balance') }}</p>
             </div>
 
           </div>
@@ -34,7 +34,7 @@
               <span class="q-subheading">EOS</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Liquid balance</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{ $t('liquid_balance') }}</p>
             </div>
 
           </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">0</p>
-              <span class="q-subheading">VOTES</span>
+              <span class="q-subheading">{{ $t('VOTES') }}</span>
             </div>
             <div class="col-xs-5 relative-position">
 
@@ -68,7 +68,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">No</p>
-              <span class="q-subheading">MEMBER</span>
+              <span class="q-subheading">{{ $t('MEMBR') }}</span>
             </div>
             <div class="col-xs-5 relative-position">
               <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Coming Soon</p>
@@ -82,7 +82,7 @@
   <!-- end row -->
 
   <q-tabs color="brand" >
-    <q-tab default @click="displayTransfers"  slot="title"   label="TRANSFERS" />
+    <q-tab default @click="displayTransfers"  slot="title"   :label="$t('TRANSFERS')" />
     <!-- <q-tab slot="title"     label="VOTES" /> -->
   </q-tabs>
 
@@ -109,8 +109,8 @@
     <div class="label_in label_in_out" v-if="title == props.row._to">IN</div>
   </q-td>
 
-  <q-td slot="body-cell-_memo" slot-scope="props" :props="props">
-    <span style="font-weight:lighter">{{props.value}}</span>
+  <q-td slot="body-cell-_memo"  slot-scope="props" :props="props">
+    <span style="font-weight:lighter; width:200px;display:inline-block; overflow:hidden">{{props.value}}</span>
   </q-td>
 
   <q-td slot="body-cell-_from" slot-scope="props" :props="props">
@@ -201,13 +201,13 @@ export default {
       title: this.$route.params.accountname,
       columns: [
         { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'left'},
-        { name: '_from', label: 'From', field: '_from', align:'right', searchable:true },
+        { name: '_from', label: this.$t('from'), field: '_from', align:'right', searchable:true },
         { name: 'direction', label: '', field: '', align:'center', ignoreapi:true },
-        { name: '_to', label: 'To', field: '_to', align:'right', searchable:true },
-        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'right' },
-        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'right' },
-        { name: '_memo', label: 'Memo', field: '_memo', align:'right' },
-        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
+        { name: '_to', label: this.$t('to'), field: '_to', align:'right', searchable:true },
+        { name: '_quantity', label: this.$t('quantity'), field: '_quantity', align:'right' },
+        { name: '_symbol', label: this.$t('symbol'), field: '_symbol', align:'right' },
+        { name: '_memo', label: this.$t('memo'), field: '_memo', align:'right' },
+        { name: 'block_time', label: this.$t('block_time'), field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
         { name: 'txid', label: 'Txid', field: 'txid', align:'left'}
       ]
     }
@@ -228,7 +228,7 @@ export default {
             this.eosdacbalance = 0;
           }
       }).catch(e => { 
-          this.$q.notify({message:'Error getting EOSDAC balance from node.', color:'negative'});
+          this.$q.notify({message: this.$t('error_node_balance'), color:'negative'});
       });
 
       this.$eos.getCurrencyBalance({account: this.title, code: "eosio.token", symbol: "EOS"}).then(x=>{
@@ -239,7 +239,7 @@ export default {
           this.eosbalance = 0;
         }
       }).catch(e => { 
-          this.$q.notify({message:'Error getting EOS balance from node.', color:'negative'});
+          this.$q.notify({message:this.$t('error_node_balance'), color:'negative'});
       });
     },
 
@@ -266,7 +266,7 @@ export default {
       })
       .catch(error => {
         this.loading = false;
-        this.$q.notify({message:'Error getting table data from server.', color:'negative'});
+        this.$q.notify({message:this.$t('error_server_table'), color:'negative'});
       })
     }
   },

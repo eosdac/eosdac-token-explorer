@@ -32,7 +32,27 @@ module.exports = function (ctx) {
       // gzip: true,
       // analyze: true,
       // extractCSS: false,
-      extendWebpack (cfg) {
+      extendWebpack(cfg) {
+        //  cfg.module.rules.push({
+        //    enforce: 'pre',
+        //    test: /\.(js|vue)$/,
+        //    loader: 'eslint-loader',
+        //    exclude: /(node_modules|quasar)/
+        //  })
+        cfg.module.rules.push({
+          resourceQuery: /blockType=i18n/,
+          use: [{
+              loader: '@kazupon/vue-i18n-loader'
+            }
+          ]
+        })
+
+        for (const rule of cfg.module.rules) {
+          if (!rule.oneOf) continue
+          for (const ruleOneOf of rule.oneOf) {
+            ruleOneOf.use = ruleOneOf.use.filter(u => u.loader !== 'postcss-loader')
+          }
+        }
       }
     },
     devServer: {
@@ -43,6 +63,8 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
+        'QSpinner',
+        'QSpinnerGears',
         'QAutocomplete',
         'QInput',
         'QSlideTransition',
@@ -89,9 +111,10 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'AppVisibility'
-      ]
+      ],
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
+      i18n: 'en-us'
     },
     // animations: 'all' --- includes all animations
     animations: [

@@ -1,4 +1,5 @@
 <template>
+  <div class="shadow-5">
   <q-table
     ref="table"
     style="background:#1E2128"
@@ -32,6 +33,7 @@
     </template>
 
   </q-table>
+  </div>
 
 </template>
 
@@ -60,12 +62,12 @@ export default {
       serverData: [],
       title:'Transfers',
       columns: [
-        { name: 'account_action_seq', label: 'Seq', field: 'account_action_seq', align:'left'},
-        { name: '_from', label: 'From', field: '_from', align:'right', searchable:true},
-        { name: '_to', label: 'To', field: '_to', align:'right', searchable:true},
-        { name: '_quantity', label: 'Quantity', field: '_quantity', align:'right' },
-        { name: '_symbol', label: 'Symbol', field: '_symbol', align:'right' },
-        { name: 'block_time', label: 'Block Time', field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
+        { name: 'account_action_seq', label: this.$t('sequence'), field: 'account_action_seq', align:'left'},
+        { name: '_from', label: this.$t('from'), field: '_from', align:'right', searchable:true},
+        { name: '_to', label: this.$t('to'), field: '_to', align:'right', searchable:true},
+        { name: '_quantity', label: this.$t('quantity'), field: '_quantity', align:'right' },
+        { name: '_symbol', label: this.$t('symbol'), field: '_symbol', align:'right' },
+        { name: 'block_time', label: this.$t('block_time'), field: 'block_time', align:'right', format: val => rf.format( new Date(moment.utc(val).format() ) ) },
         { name: 'txid', label: 'Txid', field: 'txid', align:'left', searchable:true}
       ]
     }
@@ -97,7 +99,7 @@ export default {
       })
       .catch(error => {
         this.loading = false;
-        this.$q.notify({message:'Error getting table data from server.', color:'negative'});
+        this.$q.notify({message: this.$t('error_server_table'), color:'negative'});
       })
     }
   },

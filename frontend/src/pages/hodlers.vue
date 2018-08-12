@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div class="shadow-5">
   <q-table
     style="background:#1E2128"
     ref="table"
@@ -35,15 +36,16 @@
 
     <template slot="top-left" slot-scope="props">
       <div class="q-table-title" style="margin-right:20px">{{title}}</div>
-      <q-btn color="positive" dense size="xs" @click="opened = true" label="Top 100 chart" />
+      <q-btn color="positive" dense size="xs" @click="opened = true" :label="$t('top_100_chart')" />
     
     </template>
   </q-table>
+  </div>
       
 
     <q-modal v-model="opened" maximized content-css="background:#2F333E;width:100%!important">
 
-       <q-btn color="brand" round @click="opened = false"icon="icon-close" style="position:absolute;z-index:99999;top:10px;right:10px"/>
+       <q-btn color="brand" round @click="opened = false" icon="icon-basic-01" style="position:absolute;z-index:99999;top:10px;right:10px"/>
        <test></test>
 
     </q-modal>
@@ -74,7 +76,7 @@ export default {
       title:'Holders',
       columns: [
         { name: 'rank', label: '', field: 'rank', align: 'center', ignoreapi:true},
-        { name: 'account', label: 'Account', field: 'account', align: 'center', searchable:true},
+        { name: 'account', label: this.$t('account'), field: 'account', align: 'center', searchable:true},
         { name: 'balance', label: 'EOSDAC', field: 'balance' , align: 'left'}
       ]
     }
@@ -109,7 +111,7 @@ export default {
       })
       .catch(error => {
         this.loading = false;
-        this.$q.notify({message:'Error getting table data from server.', color:'negative'});
+        this.$q.notify({message:this.$t('error_server_table'), color:'negative'});
       })
     },
 

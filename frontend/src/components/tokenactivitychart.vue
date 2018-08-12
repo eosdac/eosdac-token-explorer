@@ -53,7 +53,7 @@ export default {
       chartData: [],
       chartType: 'LineChart',
       chartOptions: {
-        title: `Token activity`,
+        title: this.$t('token_activity'),
         width:'100%',
         height:'500',
         // curveType: 'function',
@@ -66,7 +66,7 @@ export default {
         },
         vAxis: {
 
-          title: 'Transfers / Day',
+          title: this.$t('transfers_day'),
           titleTextStyle: {color: 'grey'},
           baseline: 0,
           textStyle: { color: 'grey' },

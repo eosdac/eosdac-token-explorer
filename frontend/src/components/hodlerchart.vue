@@ -42,7 +42,7 @@ export default {
       unfiltereddata:[],
       chartData: [],
       chartOptions: {
-        title: `Top 100 Holders`,
+        title: `${this.$t('top')} 100 ${this.$t('holders')}`,
         width:'900',
         height:'500',
         titleTextStyle: {
@@ -104,7 +104,7 @@ export default {
 
     inputChanged(val){
       this.chartData = this.unfiltereddata.slice(0, val+1)
-      this.chartOptions.title = `Top ${val} Holders`
+      this.chartOptions.title = `${this.$t('top')} ${val} ${this.$t('holders')}`;
     },
     onResize (size) {
       console.log(size)

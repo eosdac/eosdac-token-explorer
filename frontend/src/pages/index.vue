@@ -35,7 +35,7 @@
               <span class="q-subheading">EOSDAC</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Circulating Supply</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('circulating_supply')}}</p>
             </div>
 
           </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{membercount}}</p>
-              <span class="q-subheading">Members</span>
+              <span class="q-subheading">{{$t('members')}}</span>
             </div>
             <div class="col-xs-5 relative-position">
 
@@ -69,10 +69,10 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{hodlercount}}</p>
-              <span class="q-subheading">Holders</span>
+              <span class="q-subheading">{{$t('holders')}}</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Token Holders</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{$t('token_holders')}}</p>
             </div>
           </div>
         </div>
@@ -83,12 +83,12 @@
   <!-- end row -->
 
   <q-tabs color="brand">
-    <q-route-tab default slot="title" to="/transfers" label="TRANSFERS" />
-    <q-route-tab slot="title" to="/holders" label="HOLDERS" />
+    <q-route-tab default slot="title" to="/transfers" :label="$t('TRANSFERS')" />
+    <q-route-tab slot="title" to="/holders" :label="$t('HOLDERS')" />
     <!--   <q-tab slot="title" name="tab-3" label="MEMBERS"/>
     <q-tab slot="title" name="tab-4" label="VOTES" /> -->
 
-    <div style="min-height:500px" class="shadow-5"> <!-- <div style="background:#1E2128;">  -->
+    <div style="min-height:500px" > <!-- <div style="background:#1E2128;">  -->
       <router-view  />
     </div>
     <!-- </q-tab-pane> -->
@@ -125,7 +125,7 @@ export default {
           this.eosdacprice = response.data.data.quotes.USD.price;
         })
         .catch(e => {
-          this.$q.notify({message:'Error during coinmarketcap request.', color:'negative'});
+          this.$q.notify({message:this.$t('error_cmc_request'), color:'negative'});
         })
     },
 
@@ -138,7 +138,7 @@ export default {
           this.circulatingcount = response.data[0].tot_bal_db;
         })
         .catch(e => {
-          this.$q.notify({message:'Error retrieving tokens statistics.', color:'negative'});
+          this.$q.notify({message:this.$t('error_server_stats'), color:'negative'});
         })
     }
   },
@@ -151,7 +151,7 @@ export default {
     setInterval(function() {
       self.getPrice();
       self.getEosDacStats();
-    }, 10000);
+    }, 30000);
     // this.getEosDacStats();
   },
 

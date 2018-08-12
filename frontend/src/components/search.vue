@@ -1,6 +1,6 @@
 <template>
 
-<q-search color="brand" dark v-model.trim="terms" placeholder="Account" style="background:none">
+<q-search color="brand" dark v-model.trim="terms" :placeholder="$t('account')" style="background:none">
   <q-autocomplete
     dark
     @search="search"
@@ -33,7 +33,7 @@ export default {
           done(response.data);
       })
       .catch(e=>{
-        this.$q.notify({message:'Error getting autocomplete data from server.', color:'negative'});
+        this.$q.notify({message: this.$t('error_server_autocomplete'), color:'negative'});
         done([]);
       })
     },

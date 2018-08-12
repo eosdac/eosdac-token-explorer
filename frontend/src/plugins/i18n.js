@@ -8,6 +8,9 @@ export default ({ app, Vue }) => {
   app.i18n = new VueI18n({
     locale: 'en-us',
     fallbackLocale: 'en-us',
-    messages
+    messages:{
+    	'en-us': messages['en-us'],
+      	'nl': messages['nl']
+    }
   })
 }
