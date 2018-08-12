@@ -1,6 +1,3 @@
-// This is just an example,
-// so you can safely delete all default props below
-
 export default {
   balance:'Balance',
   liquid_balance: 'Liquid Balance',
@@ -24,8 +21,8 @@ export default {
   token_activity: 'Token Activity',
 
   sequence:'Seq',
-  from: 'from',
-  to: 'to',
+  from: 'From',
+  to: 'To',
   quantity: 'Quantity',
   symbol: 'Symbol',
   memo: 'Memo',

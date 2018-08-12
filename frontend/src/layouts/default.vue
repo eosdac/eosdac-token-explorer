@@ -96,7 +96,7 @@ export default {
       //get headblock of external node
       let res_test = await this.getHeadBlock(test_node);
       //wait 600ms
-      await new Promise(done => setTimeout(done, 800));
+      await new Promise(done => setTimeout(done, 1000));
       //get headblock of explorer node
       let res_explorer = await this.getHeadBlock(explorer_node);
 
@@ -134,14 +134,20 @@ export default {
     }
 
   },
-  mounted(){
-    this.$i18n.locale = this.$q.i18n.getLocale();
 
-  },
   created: function() {
     var self = this;
     this.checkIfNodeSynced();
 
+
+    let lang = this.$q.i18n.getLocale();
+    // lang = 'nl'
+    import ('quasar-framework/i18n/'+ lang).then(lang => {
+      // console.log(lang)
+      this.$q.i18n.set(lang.default);
+
+    })
+    this.$i18n.locale = lang;
 
     // setInterval(function() {
     //   self.getPrice();

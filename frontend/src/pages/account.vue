@@ -68,7 +68,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">No</p>
-              <span class="q-subheading">{{ $t('MEMBR') }}</span>
+              <span class="q-subheading">{{ $t('MEMBER') }}</span>
             </div>
             <div class="col-xs-5 relative-position">
               <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Coming Soon</p>
