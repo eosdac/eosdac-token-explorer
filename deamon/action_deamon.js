@@ -94,13 +94,17 @@ class WatchActions {
 							let temp = x.action_trace.act.data.quantity.split(' ');
 							data._quantity = temp[0];
 							data._symbol = temp[1];
-							data._memo = x.action_trace.act.data.memo;
+							data._memo = encodeURIComponent(x.action_trace.act.data.memo);
 							data.txid = x.action_trace.trx_id;
 
 							let sql = `INSERT INTO transfers SET ? ON DUPLICATE KEY UPDATE confirmed = ${data.confirmed}`;
-							var [rows, fields] = await self.db.query(sql, data);
-							if(data.confirmed && self.enableSocketServer){
-								self.wss.broadcast(JSON.stringify([data]) );
+							
+							if(data.confirmed){
+								try{
+									var [rows, fields] = await self.db.query(sql, data);
+								}catch(e){
+									console.log('error');
+								}
 							}
 							
 					        break;
