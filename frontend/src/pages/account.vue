@@ -67,11 +67,14 @@
               <q-icon class="q-ma-sm text-mywhite2"  style="font-size:45px;" name="icon-item-8"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
-              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">No</p>
+              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">
+                <span v-if="ismember" class="text-positive">YES</span>
+                <span v-if="!ismember" class="text-negative">NO</span>
+              </p>
               <span class="q-subheading">{{ $t('MEMBER') }}</span>
             </div>
             <div class="col-xs-5 relative-position">
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Coming Soon</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">{{ $t('status') }}</p>
             </div>
           </div>
         </div>
@@ -187,6 +190,7 @@ export default {
   },
   data () {
     return {
+      ismember: false,
       eosdacbalance:0,
       eosbalance:0,
       filter: '',
@@ -242,6 +246,25 @@ export default {
           this.$q.notify({message:this.$t('error_node_balance'), color:'negative'});
       });
     },
+    getMemberStatus(){
+      this.$eos.getTableRows({json: "true", scope: "eosdactokens", code: "eosdactokens", table: "members", lower_bound: this.title, limit:1}).then(res =>{
+        if(!res.rows.length){
+          this.ismember = false;
+          return false;
+        }
+        else{
+          if (res.rows[0].sender === this.title){
+              this.ismember = true;
+          }
+          else{
+            this.ismember = false;
+          }
+        }
+      }).catch(e => {
+          this.$q.notify({message:this.$t('error_node_member'), color:'negative'});
+      })
+
+    },
 
     request (props) {
       this.loading = true
@@ -277,7 +300,8 @@ export default {
       pagination: this.serverPagination,
       filter: this.filter
     });
-    this.getBalances()
+    this.getBalances();
+    this.getMemberStatus();
   },
 
 watch: {
@@ -288,6 +312,7 @@ watch: {
                 filter: this.filter
             });
             this.getBalances();
+            this.getMemberStatus();
           }
 },
 
