@@ -5,6 +5,7 @@ export default {
   block_time: 'ブロックタイム',
   circulating_supply: '循環サプライ',
   DETAILS: '詳細',
+  eosdac_token_activity: 'EOSDACトークンアクティビティ',
   error_cmc_request: 'エラー: Coin Market Capへのリクエスト失敗。',
   error_getting_chart_data: 'サーバーからチャートデータを取得中にエラーが発生しました。',
   error_node_balance: 'エラー: ノードからの残高情報の取得に失敗。',
