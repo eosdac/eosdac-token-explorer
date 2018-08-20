@@ -5,6 +5,7 @@ export default {
   block_time: 'Block Time',
   circulating_supply: 'Circulating Supply',
   DETAILS: 'DETAILS',
+  eosdac_token_activity: 'EOSDAC TOKEN ACTIVITY',
   error_cmc_request: 'Error during coinmarketcap request.',
   error_getting_chart_data: 'Error getting chart data from server.',  
   error_node_balance: 'Error getting balance from node.',

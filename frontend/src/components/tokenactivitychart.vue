@@ -131,6 +131,7 @@ export default {
 
       })
       .catch(e => {
+        // Replaced with translated string error_getting_chart_data
         this.$q.notify({message:'Error getting chart data from server.', color:'negative'});
       })
     },
