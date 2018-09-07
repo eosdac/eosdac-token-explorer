@@ -54,7 +54,7 @@
             </div>
             <div class="col-xs-5 relative-position">
 
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Coming Soon</p>
+              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;"></p>
             </div>
 
           </div>
@@ -140,19 +140,60 @@ export default {
         .catch(e => {
           this.$q.notify({message:this.$t('error_server_stats'), color:'negative'});
         })
+    },
+
+    async getMemberCount(){
+        let lb='';
+        let temp = [];
+
+        while(lb !== null){
+          let c = await this.getMembers(lb);
+          if(c){
+              if(lb === c[c.length-1].sender){
+                lb = null;
+              }
+              else{
+                if(lb != ''){
+                  //remove first entry except for the first run
+                  c.shift(); 
+                }
+                //set lower_bound to the last received candidate_name
+                lb = c[c.length-1].sender; 
+                temp.push(...c);
+              }
+          }
+        }
+        let real_members = temp.filter(x => {return x.agreedterms == 2});
+        this.membercount = real_members.length;
+    },
+    getMembers(lb=''){
+        return this.$eos.getTableRows({
+            "json":"true",
+            "scope":"eosdactokens",
+            "code":"eosdactokens",
+            "table":"members",
+            "lower_bound":lb,
+            "upper_bound":"",
+            "limit":0,
+            "key_type":"",
+            "index_position":""
+        }).then(res => res.rows).catch(e => {console.log(e); return false;})
     }
+
   },
 
   created: function() {
     var self = this;
     this.getPrice();
     this.getEosDacStats();
+    this.getMemberCount();
 
     setInterval(function() {
       self.getPrice();
       self.getEosDacStats();
     }, 30000);
     // this.getEosDacStats();
+    
   },
 
   watch: {
