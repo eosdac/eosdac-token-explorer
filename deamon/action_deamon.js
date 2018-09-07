@@ -14,6 +14,7 @@ class WatchActions {
 		var self = this;
 
 		this.listen_for_account = 'eosdactokens';
+		this.token_symbol = 'EOSDAC';
 
 		this.deamonize = 3; //seconds, 0 is disabled
 		this.offset = 99999999999999999; //this is a hack
@@ -99,7 +100,7 @@ class WatchActions {
 
 							let sql = `INSERT INTO transfers SET ? ON DUPLICATE KEY UPDATE confirmed = ${data.confirmed}`;
 							
-							if(data.confirmed){
+							if(data.confirmed && (self.token_symbol === data._symbol) ){
 								try{
 									var [rows, fields] = await self.db.query(sql, data);
 								}catch(e){
