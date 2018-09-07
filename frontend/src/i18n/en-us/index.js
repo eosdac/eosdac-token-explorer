@@ -19,6 +19,7 @@ export default {
   RAW_TRANSACTION: 'RAW TRANSACTION',
   DETAILS: 'DETAILS',
   token_activity: 'Token Activity',
+  status: 'Status',
 
   sequence:'Seq',
   from: 'From',
@@ -32,6 +33,7 @@ export default {
   top: 'Top',
 
   error_node_balance: 'Error getting balance from node.',
+  error_node_member: 'Error getting member status from node.',
   error_server_table: 'Error getting table data from server.',
   error_cmc_request: 'Error during coinmarketcap request.',
   error_server_stats: 'Error retrieving tokens statistics.',
