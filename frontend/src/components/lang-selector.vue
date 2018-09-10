@@ -3,16 +3,16 @@
   dark
     stack-label="I18n"
     :options="[
-      { label: 'English (US)',         value: 'en-us'},
-      { label: 'English (UK)',         value: 'en-uk' },
-      { label: 'Romanian',             value: 'ro' },
-      { label: 'Chinese (Simplified)', value: 'zh-hans' },
-      { label: 'Italian',              value: 'it' },
-      { label: 'Spanish',              value: 'es' },
-      { label: 'French',               value: 'fr' },
-      { label: 'German',               value: 'de' },
-      { label: 'Dutch',               value: 'nl' },
-      { label: 'Russian',              value: 'ru' }
+      { label: $t('lang_selector.languages.chinese') + ' - 中文',    value: 'zh-hans' },
+      { label: $t('lang_selector.languages.english_us') + ' - English (US)', value: 'en-us' },
+      { label: $t('lang_selector.languages.english_gb') + ' - English (GB)', value: 'en-gb' },
+      { label: $t('lang_selector.languages.french') + ' - Français',     value: 'fr' },
+      { label: $t('lang_selector.languages.german') + ' - Deutsche',     value: 'de' },
+      { label: $t('lang_selector.languages.italian') + ' - Italiano',    value: 'it' },
+      { label: $t('lang_selector.languages.japanese') + ' - 日本語',   value: 'ja' },
+      { label: $t('lang_selector.languages.korean') + ' - 한국어',     value: 'ko' },
+      { label: $t('lang_selector.languages.russian') + ' - Pусский',    value: 'ru' },
+      { label: $t('lang_selector.languages.spanish') + ' - Español',    value: 'es' },
     ]"
     v-model="lang"
   />
