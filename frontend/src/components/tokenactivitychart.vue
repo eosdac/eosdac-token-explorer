@@ -1,7 +1,7 @@
 <template>
   <div id="chartlistener" style="position:relative" :urlprop.sync="urlprop" class="shadow-5">
     <div class="bg-mypurple row " style="color:white;height:60px;line-height:60px;padding-left:35px" >
-      EOSDAC TOKEN ACTIVITY
+      {{ $t('eosdac_token_activity') }}
     </div>
     <q-window-resize-observable @resize="onResize" />
     <GChart 
@@ -131,6 +131,7 @@ export default {
 
       })
       .catch(e => {
+        // Replaced with translated string error_getting_chart_data
         this.$q.notify({message:'Error getting chart data from server.', color:'negative'});
       })
     },
