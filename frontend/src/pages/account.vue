@@ -113,7 +113,7 @@
   </q-td>
 
   <q-td slot="body-cell-_memo"  slot-scope="props" :props="props">
-    <span style="font-weight:lighter; width:200px;display:inline-block; overflow:hidden">{{props.value}}</span>
+    <span style="font-weight:lighter; width:200px;display:inline-block; overflow:hidden">{{decodeURIComponent(props.value)}}</span>
   </q-td>
 
   <q-td slot="body-cell-_from" slot-scope="props" :props="props">

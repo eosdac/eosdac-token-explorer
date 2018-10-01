@@ -21,6 +21,7 @@ export default ({
       'ko': messages['ko'],
       'nl': messages['nl'],
       'ru': messages['ru'],
+      'vi': messages['vi'],
       'zh-hans': messages['zh-hans'],
     }
   })
