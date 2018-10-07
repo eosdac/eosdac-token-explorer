@@ -163,7 +163,7 @@ export default {
               }
           }
         }
-        let real_members = temp.filter(x => {return x.agreedterms == 2});
+        let real_members = temp;
         this.membercount = real_members.length;
     },
     getMembers(lb=''){
