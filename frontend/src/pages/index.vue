@@ -10,7 +10,7 @@
               <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-03"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
-              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{eosdacprice}}</p>
+              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{eosdacprice.toFixed(4)}}</p>
               <span class="q-subheading">USD</span>
             </div>
             <div class="col-xs-5 relative-position  ">
