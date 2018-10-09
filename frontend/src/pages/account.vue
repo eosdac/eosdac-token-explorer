@@ -68,7 +68,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">
-                <span v-if="ismember" class="text-positive">YES</span><span  class="q-caption"> v{{ismember}}</span>
+                <span v-if="ismember" class="text-positive">YES <span  class="q-caption"> v{{ismember}}</span></span>
                 <span v-if="!ismember" class="text-negative">NO</span>
               </p>
               <span class="q-subheading">{{ $t('MEMBER') }}</span>
