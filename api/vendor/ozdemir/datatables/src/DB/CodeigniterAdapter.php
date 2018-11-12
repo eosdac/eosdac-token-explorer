@@ -1,41 +1,70 @@
-<?php namespace Ozdemir\Datatables\DB;
+<?php
 
-class CodeigniterAdapter implements DatabaseInterface {
+namespace Ozdemir\Datatables\DB;
 
-    protected $escape = [];
+use Ozdemir\Datatables\Query;
+
+/**
+ * Class CodeigniterAdapter
+ * @package Ozdemir\Datatables\DB
+ */
+class CodeigniterAdapter implements DatabaseInterface
+{
+    /**
+     * @var
+     */
     protected $CI;
 
-    function __construct($config = null)
+    /**
+     * CodeigniterAdapter constructor.
+     * @param null $config
+     */
+    public function __construct($config = null)
     {
         $this->CI =& get_instance();
         $this->CI->load->database();
     }
 
+    /**
+     * @return $this
+     */
     public function connect()
     {
         return $this;
     }
 
-    public function query($query)
+    /**
+     * @param Query $query
+     * @return mixed
+     */
+    public function query(Query $query)
     {
-        $data =  $this->CI->db->query($query, $this->escape);
+        $data = $this->CI->db->query($query, $query->escapes);
 
         return $data->result_array();
     }
 
-    public function count($query)
+    /**
+     * @param Query $query
+     * @return mixed
+     */
+    public function count(Query $query)
     {
-        $query = "Select count(*) as rowcount from ($query)t";
-        $data =  $this->CI->db->query($query, $this->escape)->result_array();
+        $data = $this->CI->db->query("Select count(*) as rowcount from ($query)t", $query->escapes)->result_array();
 
         return $data[0]['rowcount'];
     }
 
-    public function escape($string)
+    /**
+     * @param $string
+     * @param Query $query
+     * @return string
+     */
+    public function escape($string, Query $query)
     {
-        $this->escape[] = '%' . $string . '%';
+        $query->escapes[] = $string;
 
-        return "?";
+        return '?';
     }
-
 }
+

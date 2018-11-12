@@ -1,23 +1,28 @@
 [
     {
         "name": "ozdemir/datatables",
-        "version": "1.6.9",
-        "version_normalized": "1.6.9.0",
+        "version": "2.0.3",
+        "version_normalized": "2.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/n1crack/datatables.git",
-            "reference": "5c2756603d244c4c7180ef1b76633940b9ad8058"
+            "reference": "b6666ad92fc8b6b120fa5611e76fa6243ee5d85e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/n1crack/datatables/zipball/5c2756603d244c4c7180ef1b76633940b9ad8058",
-            "reference": "5c2756603d244c4c7180ef1b76633940b9ad8058",
+            "url": "https://api.github.com/repos/n1crack/datatables/zipball/b6666ad92fc8b6b120fa5611e76fa6243ee5d85e",
+            "reference": "b6666ad92fc8b6b120fa5611e76fa6243ee5d85e",
             "shasum": ""
         },
-        "require-dev": {
-            "phpspec/phpspec": "~2.0"
+        "require": {
+            "php": ">=7.1.3",
+            "symfony/http-foundation": "~4.1"
         },
-        "time": "2017-12-20T16:43:44+00:00",
+        "require-dev": {
+            "phpspec/phpspec": "~3.0",
+            "phpunit/phpunit": "~7.0"
+        },
+        "time": "2018-11-12T20:12:14+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -36,5 +41,122 @@
             }
         ],
         "description": "PHP Library to handle server-side processing for Datatables, in a fast and simple way."
+    },
+    {
+        "name": "symfony/http-foundation",
+        "version": "v4.1.7",
+        "version_normalized": "4.1.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/http-foundation.git",
+            "reference": "82d494c1492b0dd24bbc5c2d963fb02eb44491af"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/82d494c1492b0dd24bbc5c2d963fb02eb44491af",
+            "reference": "82d494c1492b0dd24bbc5c2d963fb02eb44491af",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-mbstring": "~1.1"
+        },
+        "require-dev": {
+            "predis/predis": "~1.0",
+            "symfony/expression-language": "~3.4|~4.0"
+        },
+        "time": "2018-10-31T09:09:42+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\HttpFoundation\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpFoundation Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+            "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2018-09-21T13:07:52+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.9-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
     }
 ]

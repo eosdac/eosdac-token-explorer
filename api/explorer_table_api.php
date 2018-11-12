@@ -31,7 +31,7 @@ if (isset($_GET['get'])) {
             // $dt->query('SELECT account, balance FROM balances WHERE balance > 0');
             break;
         case 'transfers':
-        	$dt->query('SELECT `account_action_seq`,`_from`,`_to`,`_quantity`,`_symbol`,`_memo`,`txid`,`block_num`,`block_time` FROM transfers ORDER BY account_action_seq DESC');
+        	$dt->query('SELECT account_action_seq, _from, _to, _quantity, _symbol, _memo, txid, block_num, block_time FROM transfers ORDER BY account_action_seq DESC');
             break;
         case 'accounttransfers':
         	if (isset($_GET['account'])) {
