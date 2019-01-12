@@ -63,7 +63,7 @@
             </div>
             <div class="col-xs-4 text-left">
               <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">
-                <span v-if="ismember" class="text-positive">YES</span>
+                <span v-if="ismember" class="text-positive">YES <span  class="q-caption"> v{{ismember}}</span></span>
                 <span v-if="!ismember" class="text-negative">NO</span>
               </p>
               <span class="q-subheading">{{ $t('MEMBER') }}</span>
@@ -268,8 +268,8 @@ export default {
           return false;
         }
         else{
-          if (res.rows[0].sender === this.title && res.rows[0].agreedtermsversion > 0){
-              this.ismember = true;
+          if (res.rows[0].sender === this.title){
+              this.ismember = (res.rows[0].agreedtermsversion > 0);
           }
           else{
             this.ismember = false;
