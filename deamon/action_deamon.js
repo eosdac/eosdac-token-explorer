@@ -25,8 +25,8 @@ class WatchActions {
 		
 
 		this.eos = eosjs({
-		    chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906', // 32 byte (64 char) hex string
-		    httpEndpoint: 'http://ex1.eosdac.io:8080', 
+			chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906', // 32 byte (64 char) hex string
+			httpEndpoint: 'http://ex1.eosdac.io:8080',
 		});
 		console.log(colors.green('Connected to EOS network!') );
 
@@ -89,7 +89,7 @@ class WatchActions {
 					}
 
 					switch (data.actiontype) {
-					    case 'transfer':
+						case 'transfer':
 							data._from = x.action_trace.act.data.from;
 							data._to = x.action_trace.act.data.to;
 							let temp = x.action_trace.act.data.quantity.split(' ');
@@ -110,8 +110,8 @@ class WatchActions {
 							
 					        break;
 
-					    default:
-					        console.log(colors.red('Unknown Action!') );
+						default:
+							console.log(colors.red('Unknown Action!') );
 					};
 
 				});
@@ -122,7 +122,7 @@ class WatchActions {
 	}
 
 	_sleep(t) {
-    	return new Promise(resolve => setTimeout(resolve, t));
+		return new Promise(resolve => setTimeout(resolve, t));
 	}
 
 
