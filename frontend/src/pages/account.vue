@@ -253,7 +253,7 @@ export default {
           return false;
         }
         else{
-          if (res.rows[0].sender === this.title && res.rows[0].agreedterms == 2){
+          if (res.rows[0].sender === this.title && res.rows[0].agreedtermsversion > 0){
               this.ismember = true;
           }
           else{
