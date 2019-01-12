@@ -16,9 +16,11 @@ CREATE TABLE `transfers` (
 CREATE TABLE `balances` (
  `account` varchar(256) NOT NULL,
  `balance` decimal(13,4) DEFAULT NULL,
+ `is_member` tinyint(1) DEFAULT NULL,
+ `has_voted` tinyint(1) DEFAULT NULL,
+ `is_exchange` tinyint(1) DEFAULT NULL,
  PRIMARY KEY (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
-
 
 delimiter $$
 $$
