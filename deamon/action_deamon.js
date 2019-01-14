@@ -89,7 +89,7 @@ class WatchActions {
 					}
 
 					switch (data.actiontype) {
-					    case 'transfer':
+						case 'transfer':
 							data._from = x.action_trace.act.data.from;
 							data._to = x.action_trace.act.data.to;
 							let temp = x.action_trace.act.data.quantity.split(' ');
@@ -108,10 +108,10 @@ class WatchActions {
 								}
 							}
 							
-					        break;
+							break;
 
-					    default:
-					        console.log(colors.red('Unknown Action!') );
+						default:
+							console.log(colors.red('Unknown Action!') );
 					};
 
 				});
@@ -122,7 +122,7 @@ class WatchActions {
 	}
 
 	_sleep(t) {
-    	return new Promise(resolve => setTimeout(resolve, t));
+		return new Promise(resolve => setTimeout(resolve, t));
 	}
 
 
