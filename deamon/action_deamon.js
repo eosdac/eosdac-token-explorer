@@ -25,8 +25,9 @@ class WatchActions {
 		
 
 		this.eos = eosjs({
-		    chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906', // 32 byte (64 char) hex string
-		    httpEndpoint: 'http://ex1.eosdac.io:8080', 
+			chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906', // 32 byte (64 char) hex string
+			httpEndpoint: 'http://api.eossweden.se',
+			//httpEndpoint: 'http://ex1.eosdac.io:8080',
 		});
 		console.log(colors.green('Connected to EOS network!') );
 
@@ -76,6 +77,10 @@ class WatchActions {
 
 				console.log('Processing actions: '+ self.start_account_action_seq +' - '+(a.actions.length+self.start_account_action_seq -1) );
 				a.actions.forEach(async function(x, i, arr){
+
+					if(x.action_trace.receipt.receiver !== self.listen_for_account || x.action_trace.act.account !== self.listen_for_account){
+						return;
+					}
 
 					let data = {};
 					data.account_action_seq = x.account_action_seq;
