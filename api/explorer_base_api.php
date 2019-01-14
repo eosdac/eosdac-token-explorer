@@ -39,7 +39,7 @@ if (isset($_GET['chart'])) {
             break;
         case 'tokenactivity':
             $where = isset($_GET['account']) ? 'AND _from ="'.$_GET['account'].'" OR _to ="'.$_GET['account'].'"' : '';
-            $stmt = $conn->prepare('SELECT DATE(block_time) date, COUNT(DISTINCT account_action_seq) totalCount FROM transfers WHERE account_action_seq > 88135 '.$where.' GROUP BY DATE(block_time)');
+            $stmt = $conn->prepare('SELECT DATE(block_time) date, COUNT(DISTINCT account_action_seq) totalCount FROM transfers WHERE account_action_seq > 200135 '.$where.' GROUP BY DATE(block_time)');
             break;
     }
 }
