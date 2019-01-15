@@ -35,7 +35,7 @@ if (isset($_GET['chart'])) {
     switch ($_GET['chart']) {
  
         case 'topholders':
-            $stmt = $conn->prepare('SELECT account,balance,is_member,has_voted FROM balances WHERE balance > 0 ORDER BY balance DESC LIMIT 500');
+            $stmt = $conn->prepare('SELECT account,balance,is_member,has_voted,is_exchange FROM balances WHERE balance > 0 ORDER BY balance DESC LIMIT 500');
             break;
         case 'tokenactivity':
             $where = isset($_GET['account']) ? 'AND _from ="'.$_GET['account'].'" OR _to ="'.$_GET['account'].'"' : '';

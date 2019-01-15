@@ -80,6 +80,7 @@ export default {
         { name: 'balance', label: 'EOSDAC', field: 'balance' , align: 'left'},
         { name: 'is_member', label: 'Is Member?', field: 'is_member' , align: 'center'},
         { name: 'has_voted', label: 'Has Voted?', field: 'has_voted' , align: 'center'}
+        { name: 'is_exchange', label: 'Is an Exchange?', field: 'is_exchange' , align: 'center'}
       ]
     }
   },

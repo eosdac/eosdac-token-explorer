@@ -93,13 +93,6 @@ class WatchActions {
 						data.confirmed = true;
 					}
 
-					let new_balance_entry = {};
-					new_balance_entry.account = '';
-					new_balance_entry.balance = 0;
-					new_balance_entry.is_member = 0;
-					new_balance_entry.has_voted = 0;
-					new_balance_entry.is_exchange = 0;
-
 					switch (data.actiontype) {
 						case 'transfer':
 							data._from = x.action_trace.act.data.from;
@@ -121,37 +114,6 @@ class WatchActions {
 							}
 							
 							break;
-
-						case 'memberunreg':
-							new_balance_entry.account = x.action_trace.act.data.sender;
-							let sql = `INSERT INTO balances SET ? ON DUPLICATE KEY UPDATE is_member = 0`;
-							try{
-								var [rows, fields] = await self.db.query(sql, new_balance_entry);
-							}catch(e){
-								console.log('error');
-							}
-						case 'memberreg':
-							new_balance_entry.account = x.action_trace.act.data.sender;
-							let sql = `INSERT INTO balances SET ? ON DUPLICATE KEY UPDATE is_member = 1`;
-							try{
-								var [rows, fields] = await self.db.query(sql, new_balance_entry);
-							}catch(e){
-								console.log('error');
-							}
-						case 'votecust':
-							new_balance_entry.account = x.action_trace.act.data.voter;
-							if (x.action_trace.act.data.newvotes.count > 0) {
-								new_balance_entry.has_voted = 1;
-							} else {
-								new_balance_entry.has_voted = 0;
-							}
-							let sql = `INSERT INTO balances SET ? ON DUPLICATE KEY UPDATE has_voted = ${new_balance_entry.has_voted}`;
-							try{
-								var [rows, fields] = await self.db.query(sql, new_balance_entry);
-							}catch(e){
-								console.log('error');
-							}
-
 						default:
 							console.log(colors.red('Unknown Action!') );
 					};
