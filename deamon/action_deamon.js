@@ -114,6 +114,7 @@ class WatchActions {
 							}
 							
 							break;
+
 						default:
 							console.log(colors.red('Unknown Action!') );
 					};

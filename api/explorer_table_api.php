@@ -27,7 +27,7 @@ if (isset($_GET['get'])) {
             break;
 
         case 'hodlers':
-            $dt->query('SELECT account,balance,is_member,has_voted,is_exchange, @curRank := @curRank + 1 AS rank FROM balances p, (SELECT @curRank := 0) r WHERE balance > 0 ORDER BY balance DESC');
+            $dt->query('SELECT account,balance,is_member,has_voted, @curRank := @curRank + 1 AS rank FROM balances p, (SELECT @curRank := 0) r WHERE balance > 0 ORDER BY balance DESC');
             // $dt->query('SELECT account, balance FROM balances WHERE balance > 0');
             break;
         case 'transfers':
