@@ -221,13 +221,12 @@ export default {
 
     getVotes(){
       this.$eos.getTableRows({json: "true", scope: "daccustodian", code: "daccustodian", table: "votes", lower_bound: this.title, limit:1}).then(res =>{
-
         if(!res.rows.length){
           this.votes = 0;
           return false;
         }
         else{
-          if (res.rows[0].sender === this.title){
+          if (res.rows[0].voter === this.title){
               this.votes = res.rows[0].candidates.length;
           }
           else{
