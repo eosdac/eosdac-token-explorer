@@ -5,7 +5,7 @@
 
 		"table_api_url":"https://explorer.eosdac.io/explorer_table_api.php",
 
-		"httpendpoint_node" : "https://explorer.eosdac.io",
+		"httpendpoint_node" : "https://api.eossweden.se",
 		
 		"chainid": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
 
