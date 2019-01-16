@@ -21,8 +21,18 @@
       <router-link :to="{path: '/account/' + props.value}" >{{ props.value }}</router-link>
     </q-td>
 
-    <q-td slot="body-cell-balance" slot-scope="props" :props="props" :style="{width:'80%'}">
+    <q-td slot="body-cell-balance" slot-scope="props" :props="props">
       {{ props.value }}
+    </q-td>
+
+    <q-td slot="body-cell-is_member" slot-scope="props" :props="props">
+      <span v-if="props.value == 1">Yes</span>
+      <span v-if="props.value == 0">No</span>
+    </q-td>
+
+    <q-td slot="body-cell-has_voted" slot-scope="props" :props="props" :style="{width:'80%'}">
+      <span v-if="props.value == 1">Yes</span>
+      <span v-if="props.value == 0">No</span>
     </q-td>
 
     <template slot="top-right" slot-scope="props">
