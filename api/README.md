@@ -3,9 +3,11 @@
 
 1. **Clone or download repo**
 
-2. **Edit the database config file (db_config.php) to match your setup**
+2. **Install depedencies with composer `composer install` inside the api folder**
 
-3. **Edit the frontends config to match the API endpoints if you haven't done it already**
+3. **Edit the database config file (db_config.php) to match your setup**
+
+4. **Edit the frontends config to match the API endpoints if you haven't done it already**
     
     ```
     frontend/src/statics/config/explorer_config.json
