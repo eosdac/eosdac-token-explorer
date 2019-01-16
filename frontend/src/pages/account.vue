@@ -254,7 +254,7 @@ export default {
         }
         else{
           if (res.rows[0].sender === this.title){
-              this.ismember = res.rows[0].agreedterms;
+              this.ismember = res.rows[0].agreedtermsversion;
           }
           else{
             this.ismember = false;

@@ -49,7 +49,7 @@
               <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-8"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
-              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{membercount}}</p>
+              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;"><a target="_blank" href="https://members.eosdac.io">{{membercount}}</a></p>
               <span class="q-subheading">{{$t('members')}}</span>
             </div>
             <div class="col-xs-5 relative-position">
@@ -162,6 +162,9 @@ export default {
                 temp.push(...c);
               }
           }
+          else{
+            lb = null;
+          }
         }
         let real_members = temp;
         this.membercount = real_members.length;
@@ -174,7 +177,7 @@ export default {
             "table":"members",
             "lower_bound":lb,
             "upper_bound":"",
-            "limit":0,
+            "limit":-1,
             "key_type":"",
             "index_position":""
         }).then(res => res.rows).catch(e => {console.log(e); return false;})
