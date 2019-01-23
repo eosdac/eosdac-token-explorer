@@ -221,17 +221,20 @@ export default {
   	getTransaction: function(){
       this.isloading=true;
   		this.$eos.getTransaction(this.$route.params.transactionid).then(tx =>{
-  			// console.log(tx)
-  			if(tx.traces[0]){
+
+        let et = tx.traces.find(trace => trace.act.account == 'eosdactokens');
+        console.log('transaction',tx)
+  			if(tx.traces[0] && et){
   				this.isvalidtxid=true
   			}
         else{
   				return false
-  			}
-        console.log(tx)
+        }
+        
+
   			this.rawtx = prettyHtml(tx);
-  			this.type= tx.traces[0].act.name;
-  			this.trxdata = tx.traces[0].act.data;
+  			this.type= et.act.name;
+  			this.trxdata = et.act.data;
         this.memo_info = this.trxdata.memo;
         delete this.trxdata.memo;
 
