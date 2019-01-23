@@ -48,14 +48,9 @@
               <q-icon class="q-ma-sm text-mywhite2" style="font-size:45px;" name="icon-item-06"></q-icon>
             </div>
             <div class="col-xs-4 text-left">
-              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">0</p>
+              <p class="q-mb-none q-mt-sm q-headline text-weight-light text-white big" style="line-height:24px;">{{votes}}</p>
               <span class="q-subheading">{{ $t('VOTES') }}</span>
             </div>
-            <div class="col-xs-5 relative-position">
-
-              <p class="small q-mb-xs absolute" style="bottom:0;right:10px;">Coming Soon</p>
-            </div>
-
           </div>
         </div>
       </div>
@@ -193,6 +188,7 @@ export default {
       ismember: false,
       eosdacbalance:0,
       eosbalance:0,
+      votes:0,
       filter: '',
       loading: false,
       serverPagination: {
@@ -223,6 +219,24 @@ export default {
 
     },
 
+    getVotes(){
+      this.$eos.getTableRows({json: "true", scope: "daccustodian", code: "daccustodian", table: "votes", lower_bound: this.title, limit:1}).then(res =>{
+        if(!res.rows.length){
+          this.votes = 0;
+          return false;
+        }
+        else{
+          if (res.rows[0].voter === this.title){
+              this.votes = res.rows[0].candidates.length;
+          }
+          else{
+            this.votes = 0;
+          }
+        }
+      }).catch(e => {
+          this.$q.notify({message:this.$t('error_node_member'), color:'negative'});
+      })
+    },
     getBalances(){
       this.$eos.getCurrencyBalance({account: this.title, code: "eosdactokens", symbol: "EOSDAC"}).then(x=>{
           if(x.length !=0){
@@ -302,6 +316,7 @@ export default {
     });
     this.getBalances();
     this.getMemberStatus();
+    this.getVotes();
   },
 
 watch: {
@@ -313,6 +328,7 @@ watch: {
             });
             this.getBalances();
             this.getMemberStatus();
+            this.getVotes();
           }
 },
 
